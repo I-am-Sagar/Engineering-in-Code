@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Children</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.7.0/react.js" integrity="sha512-jw5xwED/d4e6x9q10ZuLVHnQ4bRsG5wQPL7jAptgjZJbpYs9qF9Pt8vRLV5ohSOt/jhr6B7fKfALkK/IMIyUmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.7.0/react-dom.min.js" integrity="sha512-+dvguStSB5JRvdiuFAPNkyQCYNax95x6QCWIHt5/28U8lekAWKwz5u42FovnXF9uk5YPRdkC0tPsfWeQfhVUTg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js" integrity="sha512-kp7YHLxuJDJcOzStgd6vtpxr4ZU9kjn77e6dBsivSz+pUuAuMlE2UTdKB7jjsWT84qbS8kdCWHPETnP/ctrFsA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        var Letter = React.createClass (
+            {
+                render: function() {
+                    return (<div className="letter">{this.props.children}</div>);
+                }
+            }
+        );
+
+        ReactDOM.render(
+            <div> 
+                <Letter> A </Letter>
+                <Letter> E </Letter>
+                <Letter> I </Letter>
+                <Letter> O </Letter>
+                <Letter> U </Letter>
+            </div>, document.querySelector("#root")
+        )
+    </script>
+
+    <style>
+        #root {
+            padding: 50px;
+            background-color: #eee;
+        }
+        .letter {
+            padding: 10px; margin: 10px;
+            background-color: #ffde00; color: #333;
+            display: inline-block; 
+            font: 32px "monospace";
+            text-align: center;
+        }
+    </style>
+</body>
+</html>

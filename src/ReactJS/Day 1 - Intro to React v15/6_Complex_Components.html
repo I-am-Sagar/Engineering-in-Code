@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styling Children in Better Way</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.7.0/react.js" integrity="sha512-jw5xwED/d4e6x9q10ZuLVHnQ4bRsG5wQPL7jAptgjZJbpYs9qF9Pt8vRLV5ohSOt/jhr6B7fKfALkK/IMIyUmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.7.0/react-dom.min.js" integrity="sha512-+dvguStSB5JRvdiuFAPNkyQCYNax95x6QCWIHt5/28U8lekAWKwz5u42FovnXF9uk5YPRdkC0tPsfWeQfhVUTg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js" integrity="sha512-kp7YHLxuJDJcOzStgd6vtpxr4ZU9kjn77e6dBsivSz+pUuAuMlE2UTdKB7jjsWT84qbS8kdCWHPETnP/ctrFsA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        var Square = React.createClass (
+            {
+                render: function() {
+                    var squareStyle = {
+                        height: 150, backgroundColor: this.props.color
+                    }
+                    return (<div style={squareStyle}></div>);
+                }
+            }
+        );
+
+        var Label = React.createClass (
+            {
+                render: function() {
+                    var labelStyle = {
+                        padding: 13, margin: 0, 
+                        fontFamily: "sans-serif", fontWeight:"bold", 
+                        textAlign:"center"
+                    }
+                    return (<div style={labelStyle}>{this.props.color}</div>);
+                }
+            }
+        );
+
+        var Card = React.createClass (
+            {
+                render: function() {
+                    var cardStyle = {
+                        height:200, width:150, 
+                        padding:0, margin:20,
+                        display:"inline-block", 
+                        backgroundColor: "#fff",
+                        filter:"drop-shadow(0px 0px 5px #666)"
+                    }
+                    return (<div style={cardStyle}> <Square color={this.props.color}/> <Label color={this.props.color}/> </div>);
+                }
+            }
+        );
+
+        ReactDOM.render(
+            <div> 
+                <Card color="#FF6663"/>
+                <Card color="#FFA737"/>
+            </div>, document.querySelector("#root")
+        )
+    </script>
+
+    <style>
+        #root {
+            padding: 50px;
+            background-color: #eee;
+        }
+    </style>
+</body>
+</html>
